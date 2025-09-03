@@ -1,78 +1,92 @@
 import React from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default function InfoScreen() {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Info</Text>
-        <Text style={styles.subtitle}>App information & settings</Text>
+    <ScrollView className="flex-1 bg-[#f8f9fa]">
+      <View className="p-5 pt-16 bg-[#434447]">
+        <Text className="text-[28px] font-bold text-white">Info</Text>
+        <Text className="text-base text-[#cccccc] mt-1">
+          App information & settings
+        </Text>
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>App Information</Text>
+      <View className="m-5">
+        <Text className="text-lg font-bold text-[#434447] mb-4">
+          App Information
+        </Text>
 
-        <View style={styles.infoCard}>
-          <View style={styles.infoRow}>
+        <View className="bg-white rounded-xl p-4 shadow-sm">
+          <View className="flex-row items-center py-2 border-b border-[#f0f0f0]">
             <Icon name="phone-portrait" size={20} color="#007AFF" />
-            <Text style={styles.infoLabel}>App Version</Text>
-            <Text style={styles.infoValue}>1.0.0</Text>
+            <Text className="flex-1 text-base text-[#434447] ml-4">
+              App Version
+            </Text>
+            <Text className="text-base text-[#666666] font-medium">1.0.0</Text>
           </View>
 
-          <View style={styles.infoRow}>
+          <View className="flex-row items-center py-2 border-b border-[#f0f0f0]">
             <Icon name="calendar" size={20} color="#34C759" />
-            <Text style={styles.infoLabel}>Build Date</Text>
-            <Text style={styles.infoValue}>Dec 2024</Text>
+            <Text className="flex-1 text-base text-[#434447] ml-4">
+              Build Date
+            </Text>
+            <Text className="text-base text-[#666666] font-medium">
+              Dec 2024
+            </Text>
           </View>
 
-          <View style={styles.infoRow}>
+          <View className="flex-row items-center py-2">
             <Icon name="code" size={20} color="#FF9500" />
-            <Text style={styles.infoLabel}>React Native</Text>
-            <Text style={styles.infoValue}>0.79.5</Text>
+            <Text className="flex-1 text-base text-[#434447] ml-4">
+              React Native
+            </Text>
+            <Text className="text-base text-[#666666] font-medium">0.79.5</Text>
           </View>
         </View>
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Support</Text>
+      <View className="m-5">
+        <Text className="text-lg font-bold text-[#434447] mb-4">Support</Text>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity className="flex-row items-center p-4 bg-white rounded-xl mb-2 shadow-sm">
           <Icon name="help-circle" size={20} color="#007AFF" />
-          <Text style={styles.menuText}>Help & FAQ</Text>
+          <Text className="flex-1 text-base text-[#434447] ml-4">
+            Help & FAQ
+          </Text>
           <Icon name="chevron-forward" size={20} color="#8e8e93" />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity className="flex-row items-center p-4 bg-white rounded-xl mb-2 shadow-sm">
           <Icon name="mail" size={20} color="#34C759" />
-          <Text style={styles.menuText}>Contact Support</Text>
+          <Text className="flex-1 text-base text-[#434447] ml-4">
+            Contact Support
+          </Text>
           <Icon name="chevron-forward" size={20} color="#8e8e93" />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity className="flex-row items-center p-4 bg-white rounded-xl mb-2 shadow-sm">
           <Icon name="document-text" size={20} color="#FF9500" />
-          <Text style={styles.menuText}>Terms of Service</Text>
+          <Text className="flex-1 text-base text-[#434447] ml-4">
+            Terms of Service
+          </Text>
           <Icon name="chevron-forward" size={20} color="#8e8e93" />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity className="flex-row items-center p-4 bg-white rounded-xl mb-2 shadow-sm">
           <Icon name="shield-checkmark" size={20} color="#5856D6" />
-          <Text style={styles.menuText}>Privacy Policy</Text>
+          <Text className="flex-1 text-base text-[#434447] ml-4">
+            Privacy Policy
+          </Text>
           <Icon name="chevron-forward" size={20} color="#8e8e93" />
         </TouchableOpacity>
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>About</Text>
+      <View className="m-5">
+        <Text className="text-lg font-bold text-[#434447] mb-4">About</Text>
 
-        <View style={styles.aboutCard}>
-          <Text style={styles.aboutText}>
+        <View className="bg-white rounded-xl p-5 shadow-sm">
+          <Text className="text-base text-[#666666] leading-6">
             This is a demo wallet application built with React Native and React
             Navigation. It showcases a modern mobile wallet interface with
             transaction management, fund transfers, and user-friendly
@@ -83,105 +97,3 @@ export default function InfoScreen() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f8f9fa",
-  },
-  header: {
-    padding: 20,
-    paddingTop: 60,
-    backgroundColor: "#434447",
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#ffffff",
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#cccccc",
-    marginTop: 5,
-  },
-  section: {
-    margin: 20,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#434447",
-    marginBottom: 15,
-  },
-  infoCard: {
-    backgroundColor: "#ffffff",
-    borderRadius: 12,
-    padding: 15,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  infoRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
-  },
-  infoLabel: {
-    flex: 1,
-    fontSize: 16,
-    color: "#434447",
-    marginLeft: 15,
-  },
-  infoValue: {
-    fontSize: 16,
-    color: "#666666",
-    fontWeight: "500",
-  },
-  menuItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 15,
-    backgroundColor: "#ffffff",
-    borderRadius: 12,
-    marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  menuText: {
-    flex: 1,
-    fontSize: 16,
-    color: "#434447",
-    marginLeft: 15,
-  },
-  aboutCard: {
-    backgroundColor: "#ffffff",
-    borderRadius: 12,
-    padding: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  aboutText: {
-    fontSize: 16,
-    color: "#666666",
-    lineHeight: 24,
-  },
-});

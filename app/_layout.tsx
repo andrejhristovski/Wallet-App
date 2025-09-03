@@ -4,7 +4,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Slot } from "expo-router";
+import { Slot, useRouter, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
@@ -16,11 +16,13 @@ import { useWalletStore } from "@/store/wallet";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const { loadToken } = useAuthStore();
+  const { loadToken, token, isLoading } = useAuthStore();
   const { loadPersistedData } = useWalletStore();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
+  const router = useRouter();
+  const segments = useSegments();
 
   // Load persisted data on app start
   useEffect(() => {
@@ -38,8 +40,20 @@ export default function RootLayout() {
     }
   }, [loaded, loadToken, loadPersistedData]);
 
+  useEffect(() => {
+    if (!loaded) return;
+    if (isLoading) return;
+
+    const inAuth = segments[0] === "login";
+
+    if (!token && !inAuth) {
+      router.replace("/login");
+    } else if (token && inAuth) {
+      router.replace("/(tabs)");
+    }
+  }, [loaded, token, isLoading, segments, router]);
+
   if (!loaded) {
-    // Async font loading only occurs in development.
     return null;
   }
 
