@@ -223,11 +223,8 @@ export default function TransactionsScreen() {
     index: number;
     section: SectionData;
   }) => {
-    const isFirst = index === 0;
     const isLast = index === section.data.length - 1;
-    const rounded = `${isFirst ? " rounded-t-2xl" : ""}${
-      isLast ? " rounded-b-2xl mb-3 border-b-0" : ""
-    }`;
+    const rounded = `${isLast ? " rounded-b-2xl mb-3 border-b-0" : ""}`;
     return (
       <TouchableOpacity
         onPress={() =>
