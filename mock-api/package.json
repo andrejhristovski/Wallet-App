@@ -1,0 +1,16 @@
+{
+  "name": "mock-api",
+  "version": "1.0.0",
+  "description": "Mock API server for Native Teams API simulation",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "test": "node test-api.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nanoid": "^3.3.4",
+    "axios": "^1.6.0"
+  }
+} 
